@@ -8,6 +8,18 @@
 			"Rev": "1dd3ab0ff59e13f5b73dcbf70703710aebe50d2f"
 		},
 		{
+			"ImportPath": "github.com/dchest/uniuri",
+			"Rev": "87c54b9ba5a02ac5745160d06820ae9094db7b6f"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/internal",
+			"Rev": "785e0ca9319196b94fd61abd4c9eab5c11777377"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/redis",
+			"Rev": "785e0ca9319196b94fd61abd4c9eab5c11777377"
+		},
+		{
 			"ImportPath": "github.com/gorilla/context",
 			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
 		},

@@ -9,6 +9,9 @@ go:
 env:
   - PORT=9001
 
+services:
+  - redis-server
+
 before_script: 
   - go install
 script:

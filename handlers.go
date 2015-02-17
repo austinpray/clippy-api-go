@@ -3,7 +3,6 @@ package main
 import (
   "encoding/json"
   "net/http"
-  "time"
 )
 
 
@@ -16,7 +15,6 @@ func CapabilitiesIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func SyncIndex(w http.ResponseWriter, r *http.Request) {
-  var syncRequest SyncRequest
   var initiator Client
   decoder := json.NewDecoder(r.Body)
   err := decoder.Decode(&initiator)
@@ -25,15 +23,9 @@ func SyncIndex(w http.ResponseWriter, r *http.Request) {
     panic(err)
   }
 
-  now := time.Now()
+  syncRequest := NewSyncRequest(initiator)
 
-  syncRequest = SyncRequest{
-    Group: initiator.Group,
-    Status:  "pending",
-    Code:  "123456",
-    Initiator:  initiator,
-    CreatedAt:  now,
-    ExpiresAt:  now.Add(time.Second*3600)}
+  syncRequest.Save()
 
   json.NewEncoder(w).Encode(syncRequest);
 }
