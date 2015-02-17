@@ -3,4 +3,17 @@ language: go
 
 go:
   - 1.3
+  - release
   - tip
+
+env:
+  - PORT=9001
+
+before_script: 
+  - go install
+script:
+  - clippy-api-go&
+  - git clone https://github.com/clippy-io/clippy-acceptance.git
+  - cd clippy-acceptance
+  - npm install
+  - npm test
