@@ -1,0 +1,1 @@
+web: clippy-api-go

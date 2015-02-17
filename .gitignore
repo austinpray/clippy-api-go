@@ -25,5 +25,3 @@ _testmain.go
 
 # Binary
 clippy-api-go
-Godeps/*
-!Godeps/Godeps.json

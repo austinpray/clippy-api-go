@@ -25,5 +25,5 @@ func main() {
   n.Use(negroni.HandlerFunc(middlewareJSON))
   n.UseHandler(router)
 
-  log.Fatal(http.ListenAndServe("127.0.0.1:"+os.Getenv("PORT"), n))
+  log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), n))
 }
