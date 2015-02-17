@@ -1,3 +1,4 @@
-api.clippy.io
+clippy.io Server: Golang Edition
 =============
-golang ( ͡° ͜ʖ ͡°) 
+
+Runs at http://localhost:9001

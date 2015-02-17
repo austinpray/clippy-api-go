@@ -22,3 +22,8 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Binary
+clippy-api-go
+Godeps/*
+!Godeps/Godeps.json
