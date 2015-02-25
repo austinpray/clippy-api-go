@@ -34,12 +34,18 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", CapabilitiesIndex)
-	router.HandleFunc("/capabilities", CapabilitiesIndex)
+	router.HandleFunc("/capabilities", CapabilitiesIndex).
+		Methods("GET")
 
-	router.HandleFunc("/sync", SyncIndex)
+	router.HandleFunc("/sync", SyncIndex).
+		Methods("POST", "OPTIONS")
+
+	router.HandleFunc("/sync/{code}", SyncHandler).
+		Methods("GET", "POST", "OPTIONS")
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"},
+		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
 	})
 
 	n := negroni.Classic()
@@ -47,5 +53,5 @@ func main() {
 	n.Use(negroni.HandlerFunc(middlewareJSON))
 	n.UseHandler(router)
 
-	log.Fatal(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), n))
+	log.Panic(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), n))
 }

@@ -9,6 +9,9 @@ clean:
 run: clippy
 	PORT=9001 ./clippy-api-go
 
+heroku:
+	godep go install && PORT=9001 foreman start
+
 fmt:
 	go fmt *.go
 
