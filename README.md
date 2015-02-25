@@ -3,6 +3,10 @@ clippy.io Server: Golang Edition [![Deploy](https://www.herokucdn.com/deploy/but
 
 # Setup
 
+Requires:
+
+- Redis
+
 | ENV             | description                                                                                                                                                                                         |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PORT`          | Port the web server runs at. Defaults to `9001`                                                                                                                                                     |
