@@ -1,6 +1,8 @@
 clippy.io Server: Golang Edition [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 =============
 
+Implements [the clippy.io acceptance tests](https://github.com/clippy-io/clippy-acceptance)
+
 # Setup
 
 Requires:
