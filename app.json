@@ -1,0 +1,11 @@
+{
+  "name": "clippy-api-go",
+  "description": "clippy.io compatible server written in go",
+  "repository": "https://github.com/clippy-io/clippy-api-go",
+  "logo": "https://avatars2.githubusercontent.com/u/9847562?v=3&s=300",
+  "keywords": ["go", "clippy.io", "api"],
+  "addons": ["redistogo:nano"],
+  "env": {
+    "BUILDPACK_URL": "https://github.com/kr/heroku-buildpack-go.git"
+  }
+}

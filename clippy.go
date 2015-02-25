@@ -53,5 +53,10 @@ func main() {
 	n.Use(negroni.HandlerFunc(middlewareJSON))
 	n.UseHandler(router)
 
-	log.Panic(http.ListenAndServe("0.0.0.0:"+os.Getenv("PORT"), n))
+	ServerPort := "9001"
+	if len(os.Getenv("PORT")) > 0 {
+		ServerPort = os.Getenv("PORT")
+	}
+
+	log.Panic(http.ListenAndServe("0.0.0.0:"+ServerPort, n))
 }
