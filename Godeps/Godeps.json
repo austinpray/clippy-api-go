@@ -3,6 +3,10 @@
 	"GoVersion": "go1.4.1",
 	"Deps": [
 		{
+			"ImportPath": "github.com/asaskevich/govalidator",
+			"Rev": "e43f387b7891260b3948717f64dcd146979a2af1"
+		},
+		{
 			"ImportPath": "github.com/codegangsta/negroni",
 			"Comment": "v0.1-55-g1dd3ab0",
 			"Rev": "1dd3ab0ff59e13f5b73dcbf70703710aebe50d2f"
@@ -28,8 +32,16 @@
 			"Rev": "8a875a034c69b940914d83ea03d3f1299b4d094b"
 		},
 		{
+			"ImportPath": "github.com/mholt/binding",
+			"Rev": "6c082304f300fc70793cb0be18af0fdd4acd2b75"
+		},
+		{
 			"ImportPath": "github.com/rs/cors",
 			"Rev": "abddb2fca308f1d4a4ab6350ba89b3785613f774"
+		},
+		{
+			"ImportPath": "github.com/unrolled/render",
+			"Rev": "4af7c600639360d65cae54f24fbc3e1366489843"
 		}
 	]
 }

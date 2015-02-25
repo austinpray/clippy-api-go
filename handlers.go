@@ -2,6 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/gorilla/mux"
+	"github.com/mholt/binding"
+	"github.com/unrolled/render"
+	"log"
 	"net/http"
 )
 
@@ -14,17 +18,39 @@ func CapabilitiesIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func SyncIndex(w http.ResponseWriter, r *http.Request) {
-	var initiator Client
-	decoder := json.NewDecoder(r.Body)
-	err := decoder.Decode(&initiator)
+	initiator := new(Client)
 
-	if err != nil {
-		panic(err)
+	errs := binding.Bind(r, initiator)
+	if errs.Handle(w) {
+		return
 	}
 
-	syncRequest := NewSyncRequest(initiator)
+	syncRequest := NewSyncRequest(*initiator)
 
 	syncRequest.Save()
+
+	resp := render.New()
+	resp.JSON(w, http.StatusOK, syncRequest)
+}
+
+func SyncHandler(w http.ResponseWriter, r *http.Request) {
+	code := mux.Vars(r)["code"]
+	syncRequest := GetSyncRequest(code)
+
+	if r.Method == "POST" {
+		var target Client
+		decoder := json.NewDecoder(r.Body)
+		err := decoder.Decode(&target)
+
+		if err != nil {
+			log.Panic(err)
+		}
+
+		syncRequest.Status = "accepted"
+		syncRequest.Target = target
+
+		syncRequest.Save()
+	}
 
 	json.NewEncoder(w).Encode(syncRequest)
 }
